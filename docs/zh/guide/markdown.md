@@ -42,48 +42,6 @@ VuePress 会使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来
 
 通过 [`vuepress-plugin-md-enhance`][md-enhance]，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。
 
-:::: tip 一键启用
-
-你可以设置在主题选项中设置 `plugins.mdEnhance.enableAll: true` 启用 [md-enhance][md-enhance] 插件的所有功能。
-
-::: code-tabs#language
-
-@tab TS
-
-```ts
-import { hopeTheme } from "vuepress-theme-hope";
-
-export default {
-  theme: hopeTheme({
-    plugins: {
-      mdEnhance: {
-        enableAll: true,
-      },
-    },
-  }),
-};
-```
-
-@tab JS
-
-```js
-import { hopeTheme } from "vuepress-theme-hope";
-
-export default {
-  theme: hopeTheme({
-    plugins: {
-      mdEnhance: {
-        enableAll: true,
-      },
-    },
-  }),
-};
-```
-
-:::
-
-::::
-
 #### 自定义容器
 
 ::: v-pre
@@ -196,6 +154,12 @@ npm i -D vuepress-theme-hope
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-tabs.html)
 
+#### 上下角标
+
+19^th^ H~2~O
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
+
 #### 自定义对齐
 
 ::: center
@@ -212,11 +176,11 @@ npm i -D vuepress-theme-hope
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
 
-#### 上下角标
+#### Attrs
 
-19^th^ H~2~O
+一个拥有 ID 的 **单次**{#word}。
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/attrs.html)
 
 #### 脚注
 
@@ -383,13 +347,50 @@ span {
 
 #### 样式化
 
-<!-- markdownlint-disable MD033 -->
-
-设置它<span style="color:red">没有</span>任何效果，请<span style="color:red">不要</span>这样使用
+向 Mr.Hope 捐赠一杯咖啡。 _Recommanded_
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/stylize.html)
 
-<!-- markdownlint-enable MD033 -->
+#### 交互演示
+
+::: playground#ts TS 案例
+
+@file index.ts
+
+```ts
+const msg = "hello world";
+
+const speak = (msg: string) => console.log(msg);
+
+speak(msg);
+```
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/playground.html)
+
+#### Vue 交互演示
+
+::: vue-playground Vue 交互演示
+
+@file App.vue
+
+```vue
+<script setup>
+import { ref } from "vue";
+
+const msg = ref("Hello World!");
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
+```
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/vue-playground.html)
 
 #### 幻灯片
 
